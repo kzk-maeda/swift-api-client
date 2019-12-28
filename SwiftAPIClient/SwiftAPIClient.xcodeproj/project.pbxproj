@@ -13,6 +13,8 @@
 		C736EDE123B65DC2001F27E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C736EDE023B65DC2001F27E4 /* Assets.xcassets */; };
 		C736EDE423B65DC2001F27E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C736EDE223B65DC2001F27E4 /* LaunchScreen.storyboard */; };
 		C736EDEF23B65DC3001F27E4 /* SwiftAPIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C736EDEE23B65DC3001F27E4 /* SwiftAPIClientTests.swift */; };
+		C736EDFA23B65EA3001F27E4 /* WebAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C736EDF923B65EA3001F27E4 /* WebAPI.swift */; };
+		C736EDFC23B66B7C001F27E4 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C736EDFB23B66B7C001F27E4 /* GitHubAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		C736EDEA23B65DC3001F27E4 /* SwiftAPIClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftAPIClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C736EDEE23B65DC3001F27E4 /* SwiftAPIClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftAPIClientTests.swift; sourceTree = "<group>"; };
 		C736EDF023B65DC3001F27E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C736EDF923B65EA3001F27E4 /* WebAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebAPI.swift; sourceTree = "<group>"; };
+		C736EDFB23B66B7C001F27E4 /* GitHubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,8 @@
 				C736EDE023B65DC2001F27E4 /* Assets.xcassets */,
 				C736EDE223B65DC2001F27E4 /* LaunchScreen.storyboard */,
 				C736EDE523B65DC2001F27E4 /* Info.plist */,
+				C736EDF923B65EA3001F27E4 /* WebAPI.swift */,
+				C736EDFB23B66B7C001F27E4 /* GitHubAPI.swift */,
 			);
 			path = SwiftAPIClient;
 			sourceTree = "<group>";
@@ -198,7 +204,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C736EDDC23B65DBF001F27E4 /* ViewController.swift in Sources */,
+				C736EDFA23B65EA3001F27E4 /* WebAPI.swift in Sources */,
 				C736EDDA23B65DBF001F27E4 /* AppDelegate.swift in Sources */,
+				C736EDFC23B66B7C001F27E4 /* GitHubAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

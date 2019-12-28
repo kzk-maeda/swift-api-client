@@ -11,24 +11,50 @@ import XCTest
 
 class SwiftAPIClientTests: XCTestCase {
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testRequest() {
+        let input: Request = (
+            url: URL(string: "https://api.github.com/zen")!,
+            queries: [],
+            headers: [:],
+            methodAndPayload: .get
+        )
+        WebAPI.call(with: input)
     }
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testResponse() {
+        let response : Response = (
+            statusCode : .ok,
+            headers: [:],
+            payload: "this is a response text".data(using: .utf8)!
+        )
+        let errorOrZen = GitHubZen.from(response: response)
+        
+        switch errorOrZen {
+        case let .left(error):
+            XCTFail()
+        case let .right(zen):
+            XCTAssertEqual(zen.text, "this is a response text")
         }
     }
-
+    
+    func testRequestAndResponse() {
+        let expectation = self.expectation(description: "非同期を待つ")
+        let input: Request = (
+            url: URL(string: "https://api.github.com/zen")!,
+            queries: [],
+            headers: [:],
+            methodAndPayload: .get
+        )
+        WebAPI.call(with: input) { output in
+            switch output {
+            case let .noResponse(connectionError):
+                XCTFail("\(connectionError)")
+            case let .hasResponse(response):
+                let errorOrZen = GitHubZen.from(response: response)
+                XCTAssertNotNil(errorOrZen.right)
+            }
+            expectation.fulfill()
+        }
+        self.waitForExpectations(timeout: 10, handler: nil)
+    }
 }
